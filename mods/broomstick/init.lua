@@ -1,5 +1,5 @@
-local broomstick_time = 120 -- Seconds (for default 2 minutes)
-local broomstick_mana = 50
+local broomstick_time = 180 -- Seconds
+local broomstick_mana = 210
 local broomstick_actual_users = {}
 local had_fly_privilege = {}
 local privs = {}
@@ -44,7 +44,7 @@ minetest.register_on_joinplayer(function(player)
 end)
 
 -- Broomstick timer
-local function say_warning(playername)
+local function broomstick_end(playername)
 	minetest.chat_send_player(playername, "WARNING ! You'll fall in 10 seconds !")
 	minetest.after(10, function(playername)
 		-- Send a message...
@@ -100,7 +100,7 @@ minetest.register_craftitem("broomstick:broomstick", {
 				-- Insert player in the list.
 				table.insert(broomstick_actual_users, playername)
 				-- And add the function in queue
-				minetest.after(broomstick_time-10, say_warning, playername)
+				minetest.after(broomstick_time-10, broomstick_end, playername)
 				-- Remove broomstick.
 				return ItemStack("")
 			else
@@ -115,9 +115,9 @@ minetest.register_craftitem("broomstick:broomstick", {
 -- Craft
 minetest.register_craft({
 	output = "broomstick:broomstick",
-	recipe = {{"","","mobs:minautor_hair",},
-		{"default:stick","default:stick","mobs:minautor_hair",},
-		{"","","mobs:minautor_hair",},},
+	recipe = {{"","","farming:string",},
+		{"default:stick","default:stick","mobs:minautor_lots_of_fur",},
+		{"","","farming:string",},},
 })
 
 
