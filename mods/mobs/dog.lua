@@ -2,39 +2,49 @@
 -- Dog
 
 mobs:register_mob("mobs:dog", {
+	-- animal, monster, npc, barbarian
 	type = "npc",
-	passive = true,
-	hp_max = 5,
+	-- agressive, does 4 damage to player when hit
+	passive = false,
+	attacks_monsters = true,
+	attack_type = "dogfight",
+	damage = 3, -- 2 damage less than wolf
+	-- health & armor
+	hp_min = 15, hp_max = 20, armor = 200,
+	-- textures and model
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1, 0.4},
 	visual = "mesh",
 	mesh = "mobs_wolf.x",
+	drawtype = "front",
 	textures = {
 		{"mobs_dog.png"},
 	},
+	--visual_size = {x=1,y=1}, --Quel valeur lui mettre ?
+	blood_texture = "mobs_blood.png",
+	-- sounds
 	makes_footstep_sound = true,
 	sounds = {
+		random = "mobs_wolf",
 		war_cry = "mobs_wolf_attack",
 	},
-	view_range = 15,
-	stepheight = 1.1,
-	owner = "",
-	order = "follow",
-	walk_velocity = 4,
-	run_velocity = 4,
-	damage = 2,
-	armor = 200,
-	attacks_monsters = true,
-	attack_type = "dogfight",
+	-- speed and jump
+	walk_velocity = 3,
+	run_velocity = 5,
+	jump = true,
+	stepheight = 1.2,
+	step = 1.2,
+	view_range = 16,
 	drops = {
-		{name = "mobs:meat_raw",
-		chance = 1,
-		min = 2,
-		max = 3,},
+		{name = "mobs:meat_raw", chance = 1, min = 2, max = 3,},
 	},
-	drawtype = "front",
+	-- damaged by
 	water_damage = 0,
 	lava_damage = 5,
 	light_damage = 0,
+	-- Special for pet
+	owner = "",
+	order = "follow",
+
 	on_rightclick = function(self, clicker)
 		local item = clicker:get_wielded_item()
 		local name = clicker:get_player_name()
@@ -67,20 +77,13 @@ mobs:register_mob("mobs:dog", {
 			end
 		end
 	end,
+	-- model animation
 	animation = {
-		speed_normal = 20,
-		speed_run = 30,
-		stand_start = 10,
-		stand_end = 20,
-		walk_start = 75,
-		walk_end = 100,
-		run_start = 100,
-		run_end = 130,
-		punch_start = 135,
-		punch_end = 155,
+		stand_start = 0, stand_end = 14,
+		walk_start = 15, walk_end = 38,
+		run_start = 40, run_end = 63,
+		punch_start = 40, punch_end = 63,
+		speed_normal = 15, speed_run = 15,
 	},
-	jump = true,
-	step = 1,
-	blood_texture = "mobs_blood.png",
 })
 mobs:register_egg("mobs:dog", "Dog", "wool_brown.png", 1)
