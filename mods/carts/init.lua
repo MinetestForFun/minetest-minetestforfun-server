@@ -1,5 +1,5 @@
 dofile(minetest.get_modpath("carts").."/functions.lua")
-dofile(minetest.get_modpath("carts").."/rails.lua") 
+dofile(minetest.get_modpath("carts").."/rails.lua")
 
 local cart = {
 	physical = true, -- Set to false to not make carts collide with other entities such as carts or the player.
@@ -223,43 +223,34 @@ function cart:calc_rail_direction(pos, vel)
 		}
 
 		if cart_func.v3:equal(velocity, {x=0, y=0, z=0}) and not cart_func:is_rail(p) then
+            -- regular cart movement
+            if cart_func:is_rail(cart_func.v3:add(p, {x=0, y=1, z=0})) and vel.y >= 0 then
+                return self:calc_rail_direction(cart_func.v3:add(p, {x=0, y=1, z=0}), vel)
+            end
+            if cart_func:is_rail(cart_func.v3:add(p, {x=0, y=-1, z=0})) and vel.y <= 0 then
+                return self:calc_rail_direction(cart_func.v3:add(p, {x=0, y=-1, z=0}), vel)
+            end
 
-			-- First try this HACK
-			-- Move the cart on the rail if above or under it
-			if cart_func:is_rail(cart_func.v3:add(p, {x=0, y=1, z=0})) and vel.y >= 0 then
-				p = cart_func.v3:add(p, {x=0, y=1, z=0})
-				return self:calc_rail_direction(p, vel)
-			end
-			if cart_func:is_rail(cart_func.v3:add(p, {x=0, y=-1, z=0})) and vel.y <= 0  then
-				p = cart_func.v3:add(p, {x=0, y=-1, z=0})
-				return self:calc_rail_direction(p, vel)
-			end
-			-- Now the HACK gets really dirty
-			if cart_func:is_rail(cart_func.v3:add(p, {x=0, y=2, z=0})) and vel.y >= 0 then
-				p = cart_func.v3:add(p, {x=0, y=1, z=0})
-				return self:calc_rail_direction(p, vel)
-			end
-			if cart_func:is_rail(cart_func.v3:add(p, {x=0, y=-2, z=0})) and vel.y <= 0 then
-				p = cart_func.v3:add(p, {x=0, y=-1, z=0})
-				return self:calc_rail_direction(p, vel)
-			end
-			-- NOW the hack gets even dirtier
-			if cart_func:is_rail(cart_func.v3:add(p, {x=0, y=3, z=0})) and vel.y >= 0 then
-				p = cart_func.v3:add(p, {x=0, y=1, z=0})
-				return self:calc_rail_direction(p, vel)
-			end
-			if cart_func:is_rail(cart_func.v3:add(p, {x=0, y=-3, z=0})) and vel.y <= 0 then
-				p = cart_func.v3:add(p, {x=0, y=-1, z=0})
-				return self:calc_rail_direction(p, vel)
-			end
-			if cart_func:is_rail(cart_func.v3:add(p, {x=0, y=4, z=0})) and vel.y >= 0 then
-				p = cart_func.v3:add(p, {x=0, y=1, z=0})
-				return self:calc_rail_direction(p, vel)
-			end
-			if cart_func:is_rail(cart_func.v3:add(p, {x=0, y=-4, z=0})) and vel.y <= 0 then
-				p = cart_func.v3:add(p, {x=0, y=-1, z=0})
-				return self:calc_rail_direction(p, vel)
-			end
+            --
+            -- dirty hack to prevent cart from going off track
+            --
+            -- hack_threshold is a value that indicates by how many blocks
+            -- we shall put the cart back on the rails if it goes off.
+            --
+            -- higher server lag --> higher hack_threshold
+            --
+            -- hack_threshold should be at least 2.
+            --
+            local hack_threshold = 10
+
+            for i = 2, hack_threshold do
+                if cart_func:is_rail(cart_func.v3:add(p, {x=0, y=i, z=0})) and vel.y >= 0 then
+                    return self:calc_rail_direction(cart_func.v3:add(p, {x=0, y=1, z=0}), vel)
+                end
+                if cart_func:is_rail(cart_func.v3:add(p, {x=0, y=-i, z=0})) and vel.y <= 0 then
+                    return self:calc_rail_direction(cart_func.v3:add(p, {x=0, y=-1, z=0}), vel)
+                end
+            end
 
 			return {x=0, y=0, z=0}, p
 		end
@@ -280,7 +271,7 @@ function pos_to_string(pos)
 end --pos_to_string
 
 function cart:on_step(dtime)
-	
+
 	local pos = self.object:getpos()
 	local dir = cart_func:velocity_to_dir(self.velocity)
 
@@ -416,7 +407,7 @@ function cart:on_step(dtime)
   if not a then
       a = 0
   end--]]
-  
+
   -- get rail type and set acceleration
   local rail = minetest.get_node(pos)
   local a = 0
@@ -427,8 +418,8 @@ function cart:on_step(dtime)
   --a = a*minetest.setting_get("movement_acceleration_default") -- pour plus tard
   a = a*0.5
   --minetest.chat_send_all(a)
-   
- 
+
+
   -- Check if down arrow is being pressed (handbrake).
   if self.driver then
     local ctrl = self.driver:get_player_control()
@@ -604,5 +595,3 @@ minetest.register_craft({
 if minetest.setting_getbool("log_mods") then
 	minetest.log("action", "Carbone: [carts] loaded.")
 end
-
-
