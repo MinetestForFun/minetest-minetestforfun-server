@@ -1,9 +1,9 @@
 gameid = minetestforfun_game
 backend = redis
-redis_hash = IGNORED
+redis_hash = mff_sys4
 redis_address = localhost
 
-load_mod_mysql_auth = true
+load_mod_mysql_auth = false
 
 load_mod_darkage = true
 load_mod_quartz = true
@@ -201,8 +201,8 @@ load_mod_news = true
 load_mod_random_messages = true
 load_mod_death_messages = true
 load_mod_shutdown = true
-load_mod_irc = true
-load_mod_irc_commands = true
+load_mod_irc = false
+load_mod_irc_commands = false
 load_mod_time_regulation = true
 
 load_mod_soundset = true
