@@ -1,18 +1,18 @@
 # passer sur branche master ou stable github
-cd /home/vincent/jeux/mff/
+cd /home/vincent/mff/
 
 # Suppression des anciens fichiers
-rm -Rv /home/vincent/jeux/upgrade-mff/olds
-rm -Rv /home/vincent/jeux/upgrade-mff/mff.tar.gz
+rm -Rv /home/vincent/mff/upgrade-mff/olds
+rm -Rv /home/vincent/mff/upgrade-mff/mff.tar.gz
 
 # Sauvegarde des fichiers critiques
-cp -Rv /home/vincent/jeux/mff/games/minetestforfun_game/ /home/vincent/jeux/upgrade-mff/olds/
-cp -Rv /home/vincent/jeux/mff/mods/ /home/vincent/jeux/upgrade-mff/olds/
-cp -Rv /home/vincent/jeux/mff/worlds/ /home/vincent/jeux/upgrade-mff/olds/
-cp /home/vincent/jeux/mff/minetest.conf /home/vincent/jeux/upgrade-mff/olds/
+cp -Rv /home/vincent/jeux/mff/games/minetestforfun_game/ /home/vincent/mff/upgrade-mff/olds/
+cp -Rv /home/vincent/jeux/mff/mods/ /home/vincent/mff/upgrade-mff/olds/
+cp -Rv /home/vincent/jeux/mff/worlds/ /home/vincent/mff/upgrade-mff/olds/
+cp /home/vincent/jeux/mff/minetest.conf /home/vincent/mff/upgrade-mff/olds/
 
 # Sauvegarde et compression du dossier minetest (au cas ou)
-cd /home/vincent/jeux/upgrade-mff/
+cd /home/vincent/mff/upgrade-mff/
 tar -cf mff.tar.gz /home/vincent/jeux/mff/
 
 # Suppression de minetest
@@ -34,10 +34,10 @@ cmake . -DBUILD_CLIENT=0 -DBUILD_SERVER=1 -DENABLE_SOUND=0 -DENABLE_SYSTEM_GMP=1
 make -j$(grep -c processor /proc/cpuinfo)
 
 # Ajout des fichiers critiques au nouveau dossier minetest
-cp -Rv /home/vincent/jeux/upgrade-mff/olds/minetestforfun_game/ /home/vincent/jeux/mff/games/
-cp -Rv /home/vincent/jeux/upgrade-mff/olds/mods/ /home/vincent/jeux/mff/
-cp -Rv /home/vincent/jeux/upgrade-mff/olds/worlds/ /home/vincent/jeux/mff/
-cp /home/vincent/jeux/upgrade-mff/olds/minetest.conf /home/vincent/jeux/mff/
+cp -Rv /home/vincent/mff/upgrade-mff/olds/minetestforfun_game/ /home/vincent/jeux/mff/games/
+cp -Rv /home/vincent/mff/upgrade-mff/olds/mods/ /home/vincent/jeux/mff/
+cp -Rv /home/vincent/mff/upgrade-mff/olds/worlds/ /home/vincent/jeux/mff/
+cp /home/vincent/mff/upgrade-mff/olds/minetest.conf /home/vincent/jeux/mff/
 
 ## Donne les droits à quentinbd
 #chmod -R 755 /home/quentinbd/mff/

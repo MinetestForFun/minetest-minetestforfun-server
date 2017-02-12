@@ -6,12 +6,12 @@ cd /home/vincent/jeux/server-minetestforfun/
 git submodule update --init --recursive
 
 # On sauvegarde les anciens ../games et ../mods
-rm -R /home/vincent/jeux/upgrade-mff/olds-part/games/
-rm -R /home/vincent/jeux/upgrade-mff/olds-part/mods/
+rm -R /home/vincent/mff/upgrade-mff/olds-part/games/
+rm -R /home/vincent/mff/upgrade-mff/olds-part/mods/
 echo "Ancienne sauvegarde de /mods et /games correctement supprimée."
 
-cp -R /home/vincent/jeux/mff/mods/ /home/vincent/jeux/upgrade-mff/olds-part/
-cp -R /home/vincent/jeux/mff/games/ /home/vincent/jeux/upgrade-mff/olds-part/
+cp -R /home/vincent/jeux/mff/mods/ /home/vincent/mff/upgrade-mff/olds-part/
+cp -R /home/vincent/jeux/mff/games/ /home/vincent/mff/upgrade-mff/olds-part/
 echo "Sauvegarde de /mods et /games correctement effectuée."
 
 # On MAJ les nouveaux minetest/games et minetest/mods
