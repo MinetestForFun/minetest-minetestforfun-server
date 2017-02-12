@@ -1,6 +1,6 @@
 # On récupère la dernière version du jeu
 cd /home/vincent/jeux
-git clone https://github.com/sys4-fr/server-minetestforfun.git
+git clone -b sys4 https://github.com/sys4-fr/server-minetestforfun.git
 echo "Clone de server-minetestforfun réussit."
 cd /home/vincent/jeux/server-minetestforfun/
 git submodule update --init --recursive
