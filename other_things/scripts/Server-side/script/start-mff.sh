@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DEBUG='/home/vincent/jeux/mff/log/debug-mff.txt'
-MOREDEBUG='/home/vincent/jeux/mff/log/moredebug-mff.txt'
+DEBUG='/home/vincent/mff/log/debug-mff.txt'
+MOREDEBUG='/home/vincent/mff/log/moredebug-mff.txt'
 
 cd /home/vincent/jeux/mff
 
