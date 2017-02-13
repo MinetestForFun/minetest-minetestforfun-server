@@ -178,7 +178,7 @@ load_mod_3d_armor_stand = true
 load_mod_reinforcedleather = true
 load_mod_hardenedleather = true
 load_mod_blackmithril = true
-load_mod_technic_armor = false
+load_mod_technic_armor = true
 load_mod_magicmithril = false
 load_mod_obsidian = false
 load_mod_shields = true
@@ -227,3 +227,19 @@ load_mod_snow = true
 load_mod_profilerdumper = false
 load_mod_stacktraceplus = true
 load_mod_profnsched = false
+
+load_mod_maidroid = true
+load_mod_maidroid_core = true
+load_mod_maidroid_tool = true
+load_mod_pdisc = true
+
+load_mod_digilines = true
+
+load_mod_concrete = true
+load_mod_extranodes = true
+load_mod_technic = true
+load_mod_technic_chests = true
+load_mod_technic_worldgen = true
+load_mod_wrench = true
+
+load_mod_enchanting = true
