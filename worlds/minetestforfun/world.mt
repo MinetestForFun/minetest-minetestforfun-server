@@ -29,7 +29,7 @@ load_mod_soccer = true
 load_mod_serverguide = true
 
 load_mod_meru = true
-load_mod_watershed = true
+load_mod_watershed = false
 load_mod_bushes_classic = true
 load_mod_flowers_plus = true
 load_mod_junglegrass = true

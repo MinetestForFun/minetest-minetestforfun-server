@@ -1825,14 +1825,14 @@ end
 --
 -- Detect mapgen to select functions
 --
-local mg_params = minetest.get_mapgen_params() --(1) MFF IMPORTANT for mt <= 0.14.4 stable
-if mg_params.mgname == "v6" then --(1)
---local mg_name = minetest.get_mapgen_setting("mg_name") --(2) for mt > 0.14.4 stable
---if mg_name == "v6" then--(2)
+--local mg_params = minetest.get_mapgen_params() --(1) MFF IMPORTANT for mt <= 0.14.4 stable
+--if mg_params.mgname == "v6" then --(1)
+local mg_name = minetest.get_mapgen_setting("mg_name") --(2) for mt > 0.14.4 stable
+if mg_name == "v6" then--(2)
 	default.register_ores()
 	default.register_mgv6_decorations()
 else
-	--default.register_biomes() -- MFF
+	default.register_biomes()
 	default.register_ores()
-	--default.register_decorations() MFF: Causes extremely dense forests everywhere (since biomes are not used, decorations are generated everywhere).
+	default.register_decorations()
 end
