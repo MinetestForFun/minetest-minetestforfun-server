@@ -400,7 +400,7 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'witchcraft:tooth 1',
 	recipe = {
-		{'default:sand'},
+		{'default:sand', 'default:sand'},
 	},
 })
 
