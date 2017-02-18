@@ -1,0 +1,14 @@
+#    Version of player model.
+#    Some fixes and improvements were made to the default player model (character.b3d)
+#    end of november 2016. These changes affect the way body parts are attached and
+#    positioned. For correct results, the version of the player model must be known.
+#
+#    Player models known / supported by this mod:
+#    . -- default_character_v1; used in:
+#    .      -- minetest_game before 25 nov 2016
+#    .      -- 3d_armor before 27 nov 2016	(overrides model from minetest_game)
+#    . -- default_character_v2; used in:
+#    .      -- minetest_game after 25 nov 2016
+#    .      -- 3d_armor after 27 nov 2016	(overrides model from minetest_game)
+player_model_version (Version of player model) enum default_character_v2 default_character_v1,default_character_v2
+
