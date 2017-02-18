@@ -1,4 +1,0 @@
-default
-bucket
-unifieddyes
-vessels
