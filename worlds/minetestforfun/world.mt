@@ -243,3 +243,9 @@ load_mod_technic_worldgen = true
 load_mod_wrench = true
 
 load_mod_enchanting = true
+
+load_mod_witchcraft = true
+load_mod_playereffects = true
+load_mod_meshnode = true
+load_mod_experience = true
+load_mod_bonemeal = true
