@@ -251,3 +251,4 @@ load_mod_experience = true
 load_mod_bonemeal = true
 load_mod_tnt = true
 load_mod_playeranim = true
+load_mod_unifiedbricks = true

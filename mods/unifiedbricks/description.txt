@@ -1,0 +1,1 @@
+This mod allows the user to re-color default bricks using Unified Dyes, and provides some pattern variations as well.
