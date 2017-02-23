@@ -56,9 +56,13 @@ mobs:register_mob("mobs:wolf", {
 	on_rightclick = function(self, clicker)
 		local item = clicker:get_wielded_item()
 		if item:get_name() == "mobs:meat_raw" then
-			clicker:get_inventory():remove_item("main", "mobs:meat_raw")
+			if not minetest.setting_getbool("creative_mode") then
+				item:take_item()
+				clicker:set_wielded_item(item)
+			end
 			self.raw_meat_count = (self.raw_meat_count or 0) + 1
 			if self.raw_meat_count > 4 then
+				minetest.chat_send_player(name, "This wolf is your friend now.")
 				local ent = minetest.add_entity(self.object:getpos(), "mobs:dog")
 				self.object:remove()
 				local dog_obj = ent:get_luaentity()
