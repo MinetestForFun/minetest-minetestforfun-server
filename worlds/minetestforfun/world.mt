@@ -1,9 +1,9 @@
 gameid = minetestforfun_game
 backend = redis
-redis_hash = IGNORED
+redis_hash = mff_sys4
 redis_address = localhost
 
-load_mod_mysql_auth = true
+load_mod_mysql_auth = false
 
 load_mod_darkage = true
 load_mod_quartz = true
@@ -29,7 +29,7 @@ load_mod_soccer = true
 load_mod_serverguide = true
 
 load_mod_meru = true
-load_mod_watershed = true
+load_mod_watershed = false
 load_mod_bushes_classic = true
 load_mod_flowers_plus = true
 load_mod_junglegrass = true
@@ -178,7 +178,7 @@ load_mod_3d_armor_stand = true
 load_mod_reinforcedleather = true
 load_mod_hardenedleather = true
 load_mod_blackmithril = true
-load_mod_technic_armor = false
+load_mod_technic_armor = true
 load_mod_magicmithril = false
 load_mod_obsidian = false
 load_mod_shields = true
@@ -201,8 +201,8 @@ load_mod_news = true
 load_mod_random_messages = true
 load_mod_death_messages = true
 load_mod_shutdown = true
-load_mod_irc = true
-load_mod_irc_commands = true
+load_mod_irc = false
+load_mod_irc_commands = false
 load_mod_time_regulation = true
 
 load_mod_soundset = true
@@ -227,3 +227,27 @@ load_mod_snow = true
 load_mod_profilerdumper = false
 load_mod_stacktraceplus = true
 load_mod_profnsched = false
+
+load_mod_maidroid = true
+load_mod_maidroid_core = true
+load_mod_maidroid_tool = true
+load_mod_pdisc = true
+
+load_mod_digilines = true
+
+load_mod_concrete = true
+load_mod_extranodes = true
+load_mod_technic = true
+load_mod_technic_chests = true
+load_mod_technic_worldgen = true
+load_mod_wrench = true
+
+load_mod_enchanting = true
+
+load_mod_witchcraft = true
+load_mod_playereffects = true
+load_mod_meshnode = true
+load_mod_experience = true
+load_mod_bonemeal = true
+load_mod_tnt = true
+load_mod_playeranim = true

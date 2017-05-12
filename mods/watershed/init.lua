@@ -25,7 +25,9 @@ local TSTREAM = -0.004 -- Densitymid threshold for stream surface
 local TSSAND = -0.005 -- Densitymid threshold for stream sand
 local TLAVA = 2 -- Maximum densitybase threshold for lava,
 				-- small because grad is non-linear
-local TFIS = 0.01 -- Fissure threshold, controls width
+-- sys4: Remove Fissures
+--local TFIS = 0.01 -- Fissure threshold, controls width
+local TFIS = 0
 local TSEAM = 0.2 -- Seam threshold, width of seams
 local ORESCA = 512 -- Seam system vertical scale
 local ORETHI = 0.002 -- Ore seam thickness tuner

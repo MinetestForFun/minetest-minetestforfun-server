@@ -1,9 +1,9 @@
 #!/bin/bash
 
-DEBUG='/home/quentinbd/script/debug-mff.txt'
-MOREDEBUG='/home/quentinbd/script/moredebug-mff.txt'
+DEBUG='/home/vincent/mff/log/debug-mff.txt'
+MOREDEBUG='/home/vincent/mff/log/moredebug-mff.txt'
 
-cd /home/quentinbd/mff
+cd /home/vincent/jeux/mff
 
 while true
 	do
@@ -15,11 +15,11 @@ while true
 
 	echo "0" >/tmp/players_c.txt
 
-	/home/quentinbd/mff/bin/minetestserver \
-		--world /home/quentinbd/mff/worlds/minetestforfun/ \
-		--config /home/quentinbd/mff/minetest.conf \
+	/home/vincent/jeux/mff/bin/minetestserver \
+		--world /home/vincent/jeux/mff/worlds/minetestforfun/ \
+		--config /home/vincent/jeux/mff/minetest.conf \
 		--gameid minetestforfun_game \
-		--port 30001 \
+		--port 30002 \
 #		--logfile $DEBUG
 
 	sleep 25

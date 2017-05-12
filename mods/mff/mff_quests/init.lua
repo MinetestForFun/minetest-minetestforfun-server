@@ -26,11 +26,11 @@ mff.quests.quests = {
 	},
 	still_testing_quests2 = {
 		title = "Coal digger",
-		description = "DAILY QUEST!\nGet two Diamond and a Mese Crystal at the end!",
+		description = "DAILY QUEST!\nGet 18 Diamonds and 18 Mese Crystals at the end!",
 		repeating = 60*60*24,
 		awards = {
-			["default:diamond"] = 2,
-			["default:mese_crystal"] = 1
+			["default:diamond"] = 18,
+			["default:mese_crystal"] = 18
 		},
 		tasks = {
 			diggy = {

@@ -1,0 +1,7 @@
+Meshnodes for Minetest [meshnode]
+=================================
+
+License Source Code: Copyright (C) 2013-2017 Stuart Jones - LGPL v2.1
+
+License Media Files: CC0 1.0 Universal (CC0 1.0)
+
